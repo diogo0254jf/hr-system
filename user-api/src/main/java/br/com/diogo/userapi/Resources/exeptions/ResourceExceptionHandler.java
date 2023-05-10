@@ -16,9 +16,7 @@ public class ResourceExceptionHandler {
     @ExceptionHandler(ObjectNotFoundException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<StandardError> ObjectNotFound(ObjectNotFoundException ex, HttpServletRequest request) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-        LocalDateTime date = LocalDateTime.now();
-        String horario = date.format(formatter);
+        String horario = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         return ResponseEntity.ok().body(new StandardError(horario, ex.getMessage(), HttpStatus.NOT_FOUND.value(), request.getRequestURI()));
     }
 }
