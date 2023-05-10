@@ -13,23 +13,23 @@ import java.util.List;
 @SpringBootApplication
 public class UserApiApplication implements CommandLineRunner {
 
-	@Autowired
-	private UserRepository userRepository;
-	public static void main(String[] args) {
-		SpringApplication.run(UserApiApplication.class, args);
-	}
+    @Autowired
+    private UserRepository userRepository;
 
-	@Override
-	public void run(String... args) throws Exception {
-		userRepository.saveAll(
-				List.of(
-					new User("Diogo", "dg@mail.com", "123", 100.0),
-					new User("Diogo", "dg@mail.com", "123", 100.0),
-					new User("Diogo", "dg@mail.com", "123", 100.0),
-					new User("Diogo", "dg@mail.com", "123", 100.0),
-					new User("Diogo", "dg@mail.com", "123", 100.0)
-				)
-		);
-	};
+    public static void main(String[] args) {
+        SpringApplication.run(UserApiApplication.class, args);
+    }
 
+    @Override
+    public void run(String... args) throws Exception {
+        userRepository.saveAll(
+            List.of(
+                new User("Diogo", "dg@mail.com", "123", 100.0),
+                new User("Diogo", "dg@mail.com", "123", 100.0),
+                new User("Diogo", "dg@mail.com", "123", 100.0),
+                new User("Diogo", "dg@mail.com", "123", 100.0),
+                new User("Diogo", "dg@mail.com", "123", 100.0)
+            )
+        );
+    };
 }

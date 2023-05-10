@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 public class StandardError {
-    private LocalDateTime timestamp;
+    private String timestamp;
     private String error;
     private Integer status;
     private String path;
