@@ -24,11 +24,11 @@ public class UserApiApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         userRepository.saveAll(
             List.of(
-                new User("Diogo", "dg@mail.com", "123", 100.0),
-                new User("Diogo", "dg@mail.com", "123", 100.0),
-                new User("Diogo", "dg@mail.com", "123", 100.0),
-                new User("Diogo", "dg@mail.com", "123", 100.0),
-                new User("Diogo", "dg@mail.com", "123", 100.0)
+                new User("Diogo", "dg@mail.com", "123", 826.0),
+                new User("Fabrino", "Fabrino@mail.com", "1234", 235.0),
+                new User("Raphael", "Raphael@mail.com", "43123", 846.0),
+                new User("Landim", "Landim@mail.com", "123", 235.0),
+                new User("Raissa", "Raissa@mail.com", "123", 357.0)
             )
         );
     };

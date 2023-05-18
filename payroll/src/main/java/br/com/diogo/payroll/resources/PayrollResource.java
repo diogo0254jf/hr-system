@@ -8,23 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.diogo.payroll.domain.Payroll;
+import br.com.diogo.payroll.services.PayrollService;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/api/payments")
 public class PayrollResource {
 
+    private final PayrollService service;
+
     @GetMapping(value = "/{workerId}")
     public ResponseEntity<Payroll> getPayment(@PathVariable Long workerId, @RequestBody Payroll payment) {
-        
-        return ResponseEntity.ok().body(
-            new Payroll(
-            "Valdir", 
-            payment.getDescription(),
-            payment.getHourlyPrice(), 
-            100.0, 
-            payment.getHourlyPrice() * payment.getWorkedhours()
-            )
-        );
+        return ResponseEntity.ok().body(service.getPayment(workerId, payment));
         
     }
 
