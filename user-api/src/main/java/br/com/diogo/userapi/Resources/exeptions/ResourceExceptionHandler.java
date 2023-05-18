@@ -14,10 +14,13 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
+
     @ExceptionHandler(ObjectNotFoundException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<StandardError> ObjectNotFound(ObjectNotFoundException ex, HttpServletRequest request) {
         String horario = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
         return ResponseEntity.ok().body(new StandardError(horario, ex.getMessage(), HttpStatus.NOT_FOUND.value(), request.getRequestURI()));
     }
+
+
 }
